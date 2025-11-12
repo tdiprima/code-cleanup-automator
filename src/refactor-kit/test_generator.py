@@ -14,6 +14,7 @@ import ast
 import sys
 from pathlib import Path
 from typing import Dict, List
+from rich_argparse import RichHelpFormatter
 
 
 class FunctionInfo:
@@ -446,7 +447,8 @@ class TestGenerator:
 def main():
     """Main entry point for the test generator."""
     parser = argparse.ArgumentParser(
-        description="Generate pytest test stubs from Python source files"
+        description="Generate pytest test stubs from Python source files",
+        formatter_class=RichHelpFormatter,
     )
     parser.add_argument(
         "source_file", type=Path, help="Python source file to generate tests for"
